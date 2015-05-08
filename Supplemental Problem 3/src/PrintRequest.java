@@ -92,5 +92,9 @@ public class PrintRequest
       public String getClocktime() {
     	  return clocktime;
       }// getClocktime()
+      
+      public String getRequest() {
+    	  return ()
+      }
 
 }// class PrintRequest

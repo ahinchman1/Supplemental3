@@ -1,10 +1,11 @@
 import java.util.NoSuchElementException;
 
 public interface Queue<E>
-{  
-  //**************
-  // Methods
-  //**************
+{    
+	
+	//**************
+	// Methods
+	//**************
 	 /**
 	  * size()
 	  * retrieves the size of the data structure of the implemented 

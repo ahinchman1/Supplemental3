@@ -1,6 +1,16 @@
+/**
+ * Printer Class
+ * @author hinchman17
+ * Implements the Queue class, as well as the methods that determine
+ * the status of the printer.
+ */
+import java.lang.reflect.Array;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.PriorityQueue;
 
 
 public class Printer implements Queue <PrintRequest>
@@ -8,13 +18,46 @@ public class Printer implements Queue <PrintRequest>
 	  //**************
 	  // Field
 	  //************** 
-	    private ArrayDeque<PrintRequest> arrDeq;
+		/**
+		 * MAX_TIME
+		 */
+		private int MAX_TIME = 1000;
+		/**
+		 * MAX_SIZE
+		 */
+		// maximum size of each 
+		private int MAX_SIZE = 10;
+		private int INITIAL_CAPACITY;
+		private int counter;
+		/**
+		 * queue
+		 */
+		// creation of an object queue
+	    private PriorityQueue<PrintRequest> queue =
+	    		new PriorityQueue<PrintRequest>(MAX_SIZE);
+    	List<Object> operatingSystem; 
+	    
 	    
 	  //**************
-	  // Constructor
+	  // Constructors
 	  //**************
+	    /**
+	     * Printer
+	     * default constructor as indicated by the object creation and 
+	     * 	its input
+	     * @return new Printer object
+	     */
 	    public Printer() {
-	      arrDeq = new ArrayDeque<PrintRequest>();
+	    	
+	    	
+	    	/*counter = 0;
+
+	    	operatingSystem = new ArrayList<Object>(20);
+	    	//populate the system
+	    	for (int i = 0; i < 20; i++) {
+	    		operatingSystem.add(queue);	 */   	
+	    	}// for 
+	      
 	    }// Queue()
 
 	  //**************
@@ -26,7 +69,7 @@ public class Printer implements Queue <PrintRequest>
 	       *        processing a Print Request
 	       */
 	      public boolean printerIdle() {
-	    	  
+	    	  if ()
 	      }
 	      
 	      /**
@@ -37,7 +80,16 @@ public class Printer implements Queue <PrintRequest>
 	       *        false   
 	       */
 	      public boolean printFile(PrintRequest pr) {
-	        
+	        if (printerIdle() == true) {
+	        	operatingSystem.add(queue);
+	        	processForOneUnit();
+	        	return true;
+	        }
+	        else return false;
+	      }
+	      
+	      public PrintRequest processForOneUnit() {
+	    	  if (printerIdle() == )
 	      }
 	      
 		  //***********************************
@@ -52,7 +104,7 @@ public class Printer implements Queue <PrintRequest>
 	 	  * @return size field indicated by the java Queue class
 	 	  */
 	      public int size() {
-	           return arrDeq.size();
+	           return queue.size();
 	      }// size()
 
 	      /**
@@ -64,7 +116,7 @@ public class Printer implements Queue <PrintRequest>
 	       */
 	      public boolean isEmpty()
 	      {
-	        if (arrDeq.size() == 0) {
+	        if (queue.size() == 0) {
 	          return true;
 	        }// if
 	        else return false;
@@ -80,19 +132,47 @@ public class Printer implements Queue <PrintRequest>
 	       */
 	      public Object[] toArray()
 	      {
-	        return arrDeq.toArray();
+	        return queue.toArray();
 	      }
 
 	      /**
 	       * inserts the specified element e into this queue,
 	       * if it is possible to do so
 	       * @param e   the element to add
+	       * @precondition PrintRequest exists and Printer is initialized
+	       * @precondition size of the counter increases for the queue
 	       * @returns true upon success
 	       * @throws NullPointerException if e is null
 	       */
 	      public boolean add(PrintRequest e)
 	      {
-	        return arrDeq.add(e);
+	    	  counter++;
+	    	  int pages = e.getPages();
+	    	  switch(pages) {
+	    	  	case 1:
+	    	  		queue1.add
+	    	  		break;
+	    	  	case 2:
+	    	  		break;
+	    	  	case 3:
+	    	  		break;
+	    	  	case 4:
+		    		break;
+		    	case 5:
+		    	    break;
+		    	case 6:
+		    	  	break;
+	    	  	case 7:
+	    	  		break;
+	    	  	case 8:
+		    		break;
+		    	case 9:
+		    	    break;
+		    	case 10:
+		    	  	break;
+		    	  	
+	    	  }
+	    	  return queue.add(e);
 	      }
 
 	      /**
@@ -107,7 +187,7 @@ public class Printer implements Queue <PrintRequest>
 	       */
 	      public boolean remove(PrintRequest o)
 	      {
-	        if(arrDeq.isEmpty())
+	        if(queue.isEmpty())
 	          throw new NoSuchElementException();
 	        arrDeq.remove();
 	        return arrDeq.poll() != null;
